@@ -1,0 +1,100 @@
+{% load static %}
+<script type="text/javascript">
+    var previousSimulations = {{ previous_simulations|safe }};
+    var plants = {{ plants|safe }};
+</script>
+<div class="container mt-3">
+    <h2>Run Simulation</h2>
+    <form method="post" action="{% url 'run_simulation' %}" id="simulationForm">
+        {% csrf_token %}
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="useWaterlevel" name="use_waterlevel">
+            <label class="form-check-label" for="useWaterlevel">Use Water Level</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="useTemperature" name="use_temperature">
+            <label class="form-check-label" for="useTemperature">Use Temperature</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="allowWeedgrowth" name="allow_weedgrowth">
+            <label class="form-check-label" for="allowWeedgrowth">Allow Weed Growth</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="iterationMode" name="iteration_mode">
+            <label class="form-check-label" for="iterationMode">Iteration Mode</label>
+        </div>
+
+        <input type="hidden" id="id_form-TOTAL_FORMS" name="form-TOTAL_FORMS" value="0">
+        
+        <div class="mb-4 border rounded p-3">
+            <h4>Simulation Settings</h4>
+            <!-- Simulation Name -->
+            <div class="row justify-content-center mt-4">
+                <div class="col-md-8">
+                    <label for="{{ simulation_form.name.id_for_label }}" class="form-label">{{ simulation_form.name.label }}</label>
+                    {{ simulation_form.name }}
+                </div>
+            </div>
+
+            <!-- Length -->
+            <div class="row justify-content-center mt-4">
+                <div class="col-md-8">
+                    <div class="d-flex align-items-center">
+                        <input type="checkbox" class="form-check-input testing-checkbox d-none" id="splitLength">
+                        <label for="splitLength" class="form-check-label d-none ms-2">Test Split</label>
+                    </div>
+                    <label for="{{ simulation_form.length.id_for_label }}" class="form-label">{{ simulation_form.length.label }}</label>
+                    {{ simulation_form.length }}
+                </div>
+            </div>
+
+            <!-- Start Date -->
+            <div class="row justify-content-center mt-4">
+                <div class="col-md-8">
+                    <div class="d-flex align-items-center">
+                        <input type="checkbox" class="form-check-input testing-checkbox d-none" id="splitStartDate">
+                        <label for="splitStartDate" class="form-check-label d-none ms-2">Test Split</label>
+                    </div>
+                    <label for="{{ simulation_form.startDate.id_for_label }}" class="form-label">{{ simulation_form.startDate.label }}</label>
+                    {{ simulation_form.startDate }}
+                </div>
+            </div>
+
+            <!-- Step Size -->
+            <div class="row justify-content-center mt-4">
+                <div class="col-md-8">
+                    <div class="d-flex align-items-center">
+                        <input type="checkbox" class="form-check-input testing-checkbox d-none" id="splitStepSize">
+                        <label for="splitStepSize" class="form-check-label d-none ms-2">Test Split</label>
+                    </div>
+                    <label for="{{ simulation_form.stepSize.id_for_label }}" class="form-label">{{ simulation_form.stepSize.label }}</label>
+                    {{ simulation_form.stepSize }}
+                </div>
+            </div>
+
+            <!-- Harvest Type -->
+            <div class="row justify-content-center mt-4">
+                <div class="col-md-8">
+                    <label for="{{ form.harvestType.id_for_label }}" class="form-label">{{ simulation_form.harvestType.label }}</label>
+                    {{ simulation_form.harvestType }}
+                </div>
+            </div>
+        </div>
+
+        <div id="formset-container">
+            <h4>Plant Parameters</h4>
+        </div>
+        <div id="row-list">
+            <!-- Rows will be dynamically added here -->
+        </div>
+        <div class="d-flex align-items-center">
+            <input type="checkbox" id="multiRowCheckbox" class="form-check-input testing-checkbox d-none me-2">
+            <label for="multiRowCheckbox" class="form-check-label d-none">Allow Multiple Rows</label>
+        </div>
+        <button id="id_add_row" type="button" class="btn btn-secondary mt-3">Add New Row</button>
+        <button id="runSimulationButton" type="button" class="btn btn-primary mt-3">Run Simulation</button>
+    </form>
+</div>
+<script src="{% static 'simapp/plotting.js' %}"></script>
+<script src="{% static 'simapp/run_simulation.js' %}"></script>
+

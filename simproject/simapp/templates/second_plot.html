@@ -1,0 +1,42 @@
+{% load static %}
+<div class="accordion-body">
+    <!-- Carousel for Second Plot -->
+    <h4>Iteration: <span id="carousel2Index">1</span></h4>
+    <div class="controls mb-4">
+        <!-- Dropdown for selecting the plot type -->
+        <select id="selectPlotType" class="form-select mb-2">
+            <option value="growth">Growth</option>
+            <option value="yield">Yield</option>
+            <option value="temperature">Temperature</option>
+            <option value="water">Water</option>
+            <option value="overlap">Overlap</option>
+            <option value="rain">Rain</option>
+            <option value="time_needed">time needed</option>
+            <option value="profit">profit</option>
+            <option value="yield_per_area">yield by area</option>
+            <option value="growth_per_area">growth by area</option>
+            <option value="yield_per_plant">yield by plant</option>
+            <option value="growth_per_plant">growth by plant</option>
+            <option value="number_of_plants">number of Plants</option>
+
+        </select>
+    </div>
+    <div id="carouselCaption2" class="carousel slide" data-bs-ride="false">
+        <div class="carousel-indicators">
+            <!-- Indicators will be generated dynamically -->
+        </div>
+        <div class="carousel-inner">
+            <!-- Carousel items will be generated dynamically -->
+        </div>
+        <!-- Carousel buttons -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselCaption2" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselCaption2" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+<script src="{% static 'simapp/plotting.js' %}"></script>

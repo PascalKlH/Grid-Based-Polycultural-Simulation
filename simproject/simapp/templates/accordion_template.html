@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <title>Grid-Based Polycultural Simulation</title>
+    
+    <!-- Load Plotly.js for graphical plotting -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    
+    <!-- Load Bootstrap for styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom stylesheets -->
+    <link rel="stylesheet" href="{% static 'simapp/style.css' %}">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+</head>
+<body>
+    <div class="container mt-4">
+        <!-- Header section with introduction text -->
+        <div class="px-4 py-5 my-5 text-center" style="background-color: #f8f9fa; border-radius: 15px; border: 1px solid #dee2e6;">
+            <h1 class="display-4 fw-bold">Grid-Based Polycultural Simulation</h1>
+            <div class="col-lg-6 mx-auto">
+                <p class="lead mb-4">The plant simulation tool</p>
+            </div>
+        </div>
+
+        <!-- Link to the tutorial document -->
+        <div class="text-center">
+            <p>If you are new to this tool, use this <a href="{% static 'documents/tutorial.pdf' %}" target="_blank">tutorial</a> to get started.</p>
+        </div>
+
+        <!-- Main accordion for displaying different content dynamically loaded -->
+        <div class="accordion" id="mainAccordion">
+            {% for content in content_list %}
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingContent{{ forloop.counter }}">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseContent{{ forloop.counter }}"
+                            aria-expanded="false" aria-controls="collapseContent{{ forloop.counter }}">
+                        {{ content.name }}
+                    </button>
+                </h2>
+                <div id="collapseContent{{ forloop.counter }}"
+                     class="accordion-collapse collapse"
+                     aria-labelledby="headingContent{{ forloop.counter }}">
+                    <div class="accordion-body">
+                        {{ content.content|safe }}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Script for dynamic plotting and interaction, specific to simulation needs -->
+    <script src="{% static 'simapp/plotting.js' %}"></script>
+</body>
+</html>

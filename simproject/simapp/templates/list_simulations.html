@@ -1,0 +1,21 @@
+{% load static %}
+<div class="container mt-5">
+    <h2>Simulations</h2>
+    <ul id="simulationList" class="list-group">
+        {% for simulation in simulations %}
+            <li class="list-group-item d-flex justify-content-between align-items-center" data-simulation="{{ simulation.simName }}">
+                {{ simulation.simName }}
+                <div>
+                    <button class="btn btn-primary btn-sm plot-btn" data-simulation="{{ simulation.simName }}">
+                        Plot
+                    </button>
+                    <button class="btn btn-danger btn-sm delete-btn" data-simulation="{{ simulation.simName }}">
+                        Delete
+                    </button>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+<script src="{% static 'simapp/list_simulations.js' %}"></script>
+

@@ -1,0 +1,39 @@
+{% load static %}
+<div class="accordion-body">
+    <!-- Carousel for Third Plot (Heatmap) -->
+    <h4>Iteration: <span id="carousel3Index">1</span></h4>
+    <div id="carouselCaption3" class="carousel slide" data-bs-ride="false">
+        <div class="carousel-indicators">
+            <!-- Indicators will be generated dynamically -->
+        </div>
+        <div class="carousel-inner">
+            <!-- Carousel items will be generated dynamically -->
+        </div>
+        <!-- Heatmap Controls -->
+        <div class="col-12 text-center mt-3">
+            <label for="heatmapOption" class="form-label">Select Heatmap View:</label>
+            <select id="heatmapOption" class="form-select w-50 mx-auto">
+                <option value="plants">Plants</option>
+                <option value="weeds">Weeds</option>
+                <option value="plantsweeds">Plants and Weeds</option>
+            </select>
+            <label for="showStrips" class="form-check-label">Show Strips</label>
+            <input type="checkbox" id="showStrips" class="form-check-input">
+        </div>
+        <div class="col-md-8 mx-auto text-center mt-3">
+            <label for="dateSlider" class="form-label">Select Date: <span id="sliderValue"></span></label>
+            <input type="range" id="dateSlider" min="0" max="0" value="0" class="form-range">
+            
+        </div>
+        <!-- Carousel buttons -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselCaption3" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="false"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselCaption3" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="false"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+<script src="{% static 'simapp/plotting.js' %}"></script>

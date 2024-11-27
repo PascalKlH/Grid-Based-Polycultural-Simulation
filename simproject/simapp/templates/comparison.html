@@ -1,0 +1,25 @@
+{% load static %}
+<div class="accordion-body">
+    <!-- Dropdown for Plot Selection (Y-Axis) -->
+    <div class="row mb-3">
+        <label for="y-axis-select" class="form-label">Select Y-Axis (Value to Compare):</label>
+        <select id="y-axis-select" class="form-select">
+            <option value="growth">Growth</option>
+            <option value="yield">Yield</option>
+            <option value="water">Water</option>
+            <option value="overlap">Overlap</option>
+            <option value="profit">Profit</option>
+            <option value="yield_per_area">Yield by Area</option>
+            <option value="growth_per_area">Growth by Area</option>
+            <option value="yield_per_plant">Yield by Plant</option>
+            <option value="growth_per_plant">Growth by Plant</option>
+            <option value="profit_per_plant">Profit by Plant</option>
+            <option value="profit_per_area">Profit by Area</option>
+            <option value="number_of_plants">Number of Plants</option>
+
+        </select>
+    </div>
+    <!-- Plot Container for Comparison -->
+    <div id="comparisonPlot" class="mt-4"></div> <!-- This is where the comparison plot will appear -->
+</div>
+<script src="{% static 'simapp/plotting.js' %}"></script>

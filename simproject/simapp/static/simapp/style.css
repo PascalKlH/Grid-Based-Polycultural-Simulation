@@ -1,0 +1,139 @@
+/* Consistent size and center alignment for all plot containers */
+.plot-container {
+    width: 1000px;
+    height: 1000px;
+    margin: 0 auto; /* Center horizontally */
+}
+
+/* Align the slider with the plots */
+#dateSlider {
+    width: 1000px;
+    margin: 20px auto; /* Center horizontally */
+    display: block;
+}
+
+/* Custom styles for better visual appearance */
+.text-center {
+    text-align: center;
+}
+.row-container {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.row-controls input {
+    width: 100px;
+    margin-right: 10px;
+}
+.row-controls select {
+    width: 150px;
+    margin-right: 10px;
+}
+.remove-btn {
+    margin-top: 10px;
+}
+.row-controls {
+    display: flex;
+    flex-wrap: wrap; /* Optional: Wenn die Zeile zu lang ist, wird sie umgebrochen */
+    gap: 10px; /* Abstand zwischen den Elementen */
+    align-items: center; /* Zentriert die Elemente vertikal */
+}
+
+.row-controls select,
+.row-controls input {
+    flex: 1; /* Alle Elemente teilen den verfügbaren Platz gleichmäßig auf */
+    min-width: 120px; /* Mindestbreite der Felder */
+}
+
+.row-controls .remove-btn {
+    flex: none; /* Entfernt die Flexibilität, damit der Button seine eigene Größe behält */
+}
+.row-container {
+    position: relative; /* Ensure the tooltip is positioned relative to the row container */
+}
+
+.tooltip {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    z-index: 1000;
+    white-space: nowrap;
+    max-width: 200px; /* Optional: to ensure tooltip doesn’t get too wide */
+}
+/* Adjusting carousel controls to move them farther from the center */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 4%; /* Control width, adjust as necessary */
+}
+
+.carousel-control-prev {
+    left: 0; /* Adjust left for prev button if needed */
+}
+
+.carousel-control-next {
+    right: 0; /* Adjust right for next button if needed */
+}
+
+/* Styling to ensure visibility over different backgrounds */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgb(126, 185, 48); /* Makes the arrows more visible */
+    border-radius: 50%; /* Circular background */
+    padding: 20px; /* Padding around the arrow icons */
+}
+ /*slightly larger icons*/
+
+
+
+/* Hover state of the accordion button */
+.accordion-button:hover {
+    background-color: rgb(106, 165, 38); /* Darker shade of the base green for hover */
+}
+
+/* State of the accordion button when the accordion panel is open */
+.accordion-button:not(.collapsed) {
+    background-color: rgb(146, 205, 58); /* Lighter and more vibrant shade of green when active */
+    color: white;
+}
+
+/* Change focus ring color to match the green theme */
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(126, 185, 48, 0.5); /* Green glow for focus, semi-transparent */
+}
+
+/* Optional: Adjust the background color of the collapse area if desired */
+.accordion-collapse {
+    background-color: rgba(126, 185, 48, 0.1); /* Very light green background for the content area */
+}
+/* General style for list items */
+#plantList .list-group-item {
+    background-color: rgb(126, 185, 48); /* Same base color as accordion button */
+    color: white; /* Text color for contrast */
+    border: 1px solid rgba(106, 165, 38, 0.5); /* Slightly darker border color */
+}
+
+/* Style for active list item */
+#plantList .list-group-item.active {
+    background-color: rgb(146, 205, 58); /* Lighter, vibrant shade for active state */
+    border-color: rgb(104, 153, 40); /* Darker border color for active item */
+}
+
+/* Hover effects for list items */
+#plantList .list-group-item:hover {
+    background-color: rgb(104, 153, 40); /* Darker shade for hover */
+}
+
+/* Link styles to ensure they are readable and fit with the design */
+#plantList .list-group-item a {
+    color: white; /* Ensure link text is white */
+    text-decoration: none; /* No underline */
+}
+
+#plantList .list-group-item a:hover {
+    color: #f8f9fa; /* Lighter shade when hovered */
+}
