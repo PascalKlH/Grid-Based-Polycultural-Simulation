@@ -42,7 +42,7 @@ This project simulates the growth of crops and the management of weeds in agricu
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/PascalKlH/Grid-Based-Polycultural-Simulation.git
-   cd yourproject
+   
 2. **Create a virtual environment
    ```bash
     python -m venv venv
